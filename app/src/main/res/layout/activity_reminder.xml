@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".reminder.ReminderActivity"
+        android:background="@color/primaryLightColor">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/reminder_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/calendarlogotoolbar"
+            android:background="@color/primaryColor"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Hatırlatıcı"
+            app:titleTextColor="@color/primaryTextColor"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reminder_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reminder_toolbar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            app:tint="@color/background"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/plus"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/guideimage"
+            android:layout_width="237dp"
+            android:layout_height="284dp"
+            app:layout_constraintBottom_toTopOf="@+id/add_reminder"
+            app:layout_constraintEnd_toStartOf="@+id/add_reminder"
+            app:srcCompat="@drawable/guideimage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
