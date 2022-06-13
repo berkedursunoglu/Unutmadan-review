@@ -75,6 +75,7 @@ class ReminderService : Service() {
             .setOnlyAlertOnce(true)
             .addAction(R.drawable.logo, "Tamam", intent)
             .build()
+
         var managerCompat = NotificationManagerCompat.from(context)
         managerCompat.notify(1, builder)
     }
