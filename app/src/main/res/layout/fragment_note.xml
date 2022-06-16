@@ -45,5 +45,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/plus" />
 
+        <ImageView
+            android:id="@+id/noteguideimage"
+            android:layout_width="224dp"
+            android:layout_height="243dp"
+            app:layout_constraintBottom_toTopOf="@+id/noteAdd"
+            app:layout_constraintEnd_toStartOf="@+id/noteAdd"
+            app:srcCompat="@drawable/noteguide" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

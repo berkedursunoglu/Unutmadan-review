@@ -10,7 +10,9 @@
         android:label="NoteFragment" >
         <action
             android:id="@+id/noteFragtoEditFrag"
-            app:destination="@id/editFragment" />
+            app:destination="@id/editFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/editFragment"
@@ -26,6 +28,9 @@
             android:defaultValue="new" />
         <action
             android:id="@+id/editFragtoNoteFrag"
-            app:destination="@id/noteFragment" />
+            app:destination="@id/noteFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/note_navgraph"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

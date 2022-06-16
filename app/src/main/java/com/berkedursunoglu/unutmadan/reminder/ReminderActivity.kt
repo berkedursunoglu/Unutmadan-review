@@ -54,6 +54,8 @@ class ReminderActivity : AppCompatActivity() {
         recyclerView()
         dataBinding.addReminder.setOnClickListener {
             alertDialog()
+            dataBinding.guideimage.visibility = View.GONE
+            guideShared()
         }
     }
 
@@ -187,7 +189,7 @@ class ReminderActivity : AppCompatActivity() {
             timeMillis,
             requestCode
         )
-        guideShared()
+
         createNotificationChannel()
         recyclerView()
     }

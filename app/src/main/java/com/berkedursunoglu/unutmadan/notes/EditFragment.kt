@@ -1,10 +1,12 @@
 package com.berkedursunoglu.unutmadan.notes
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -17,6 +19,7 @@ class EditFragment : Fragment() {
 
     private lateinit var dataBinding: FragmentEditBinding
     private lateinit var viewModel: EditFragmentViewModel
+
 
 
     override fun onCreateView(
@@ -83,5 +86,7 @@ class EditFragment : Fragment() {
 
 
     }
+
+
 
 }

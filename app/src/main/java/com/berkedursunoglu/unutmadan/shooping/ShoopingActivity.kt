@@ -1,10 +1,12 @@
 package com.berkedursunoglu.unutmadan.shooping
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +19,7 @@ class ShoopingActivity : AppCompatActivity() {
     private lateinit var dataBinding: ActivityShoopingBinding
     private lateinit var viewModel: ShoopingActivityViewModel
     private lateinit var rv: ShoopingRecyclerView
+    private lateinit var guideShared: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +27,17 @@ class ShoopingActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[ShoopingActivityViewModel::class.java]
         dataBinding.shoopingRecyclerView.layoutManager = LinearLayoutManager(this)
         setSupportActionBar(dataBinding.shopToolbar)
-
+        val guidenote = this.getSharedPreferences("guideShared", MODE_PRIVATE)
+        val shop = guidenote.getInt("shopguide",0)
+        if (shop == 1){
+            dataBinding.shoopguideimage.visibility = View.GONE
+        }
 
         dataFromRoom()
         dataBinding.shoopingAddButton.setOnClickListener {
             addShopItem()
+            dataBinding.shoopguideimage.visibility = View.GONE
+            guideShared()
         }
 
 
@@ -80,6 +89,12 @@ class ShoopingActivity : AppCompatActivity() {
             }
             else -> return false
         }
+    }
+
+    private fun guideShared(){
+        guideShared = this.getSharedPreferences("guideShared", AppCompatActivity.MODE_PRIVATE)
+        val guidEdit = guideShared.edit()
+        guidEdit.putInt("shopguide",1).apply()
     }
 
 

@@ -17,7 +17,7 @@
         android:background="@color/primaryLightColor">
 
         <androidx.appcompat.widget.Toolbar
-            app:title="TODO"
+            app:title="Unutmadan"
             app:titleTextColor="@color/primaryTextColor"
             android:id="@+id/toolbar"
             android:layout_width="0dp"

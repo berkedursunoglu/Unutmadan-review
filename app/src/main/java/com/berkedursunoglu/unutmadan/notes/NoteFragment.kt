@@ -1,5 +1,7 @@
 package com.berkedursunoglu.unutmadan.notes
 
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
@@ -17,6 +19,7 @@ class NoteFragment : Fragment() {
 
     private lateinit var dataBinding: FragmentNoteBinding
     private lateinit var viewModel: NoteFragmentViewModel
+    private lateinit var guideShared: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +42,14 @@ class NoteFragment : Fragment() {
         val activity = activity as AppCompatActivity
         activity.setSupportActionBar(dataBinding.noteToolbar)
         getData()
+        guideShared = requireContext().getSharedPreferences("guideShared",MODE_PRIVATE)
+        val note = guideShared.getInt("noteguide",0)
+        if (note == 1){
+            dataBinding.noteguideimage.visibility = View.GONE
+        }
         dataBinding.noteAdd.setOnClickListener {
+            dataBinding.noteguideimage.visibility = View.GONE
+            guideShared()
             val action = NoteFragmentDirections.noteFragtoEditFrag(howToCame = "new")
             view.findNavController().navigate(action)
         }
@@ -82,5 +92,9 @@ class NoteFragment : Fragment() {
 
     }
 
-
+    private fun guideShared(){
+        guideShared = requireContext().getSharedPreferences("guideShared", AppCompatActivity.MODE_PRIVATE)
+        val guidEdit = guideShared.edit()
+        guidEdit.putInt("noteguide",1).apply()
+    }
 }

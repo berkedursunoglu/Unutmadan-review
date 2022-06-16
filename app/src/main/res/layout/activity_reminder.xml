@@ -53,6 +53,6 @@
             android:layout_height="284dp"
             app:layout_constraintBottom_toTopOf="@+id/add_reminder"
             app:layout_constraintEnd_toStartOf="@+id/add_reminder"
-            app:srcCompat="@drawable/guideimage" />
+            app:srcCompat="@drawable/reminderguide" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
